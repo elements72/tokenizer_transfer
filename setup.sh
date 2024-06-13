@@ -1,6 +1,9 @@
 # Install dependencies
 pip3 install -r requirements.txt --no-cache-dir
 
+git submodule init
+git submodule update
+
 # Check if zett is already installed
 if [ -d "zett" ]; then
     cd zett
