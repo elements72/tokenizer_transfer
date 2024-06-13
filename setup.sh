@@ -11,3 +11,8 @@ if [ -d "zett" ]; then
     pip3 install -U --no-cache-dir "jax[cuda12_pip]==0.4.23" -f https://storage.googleapis.com/jax-releases/jax_cuda_releases.html # adjust based on your CUDA version
     pip3 install -e .
 fi
+
+# Install tokenizer_transfer
+cd ..
+pip3 install -e .
+
