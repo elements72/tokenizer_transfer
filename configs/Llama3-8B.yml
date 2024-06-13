@@ -1,0 +1,12 @@
+---
+target_model: 'meta-llama/Meta-Llama-3-8B'
+output: 'Llama3-8B'
+tokenizer_name: 'meta-llama/Meta-Llama-3-8B'
+method: 'zett'
+corpus: 'buster'
+fine_tuned: false
+hypernet: 'https://huggingface.co/benjamin/zett-hypernetwork-Meta-Llama-3-8B-experimental'
+model_class: 'AutoModelForCausalLM'
+vocab_size: 0.75
+push_to_hub: false
+revision: "refs/pr/129"

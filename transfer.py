@@ -3,6 +3,8 @@ import os
 import subprocess
 import sys
 from logging import getLogger
+
+import yaml
 from dataclasses import dataclass
 from transformers import AutoModelForTokenClassification
 from transformers import HfArgumentParser, AutoTokenizer, AutoModel
@@ -29,6 +31,7 @@ class TransferArguments:
     revision: str = None
     push_to_hub: bool = False
     fine_tuned: bool = True
+    config_file: str = None
     base_model: str = "xlm-roberta-base"  # Base model to transfer the tokenizer, used only when we need to perform post-training transfer
 
 
@@ -160,4 +163,14 @@ def vocabulary_transfer(args: TransferArguments, model_kwargs=None):
 
 if __name__ == "__main__":
     (args,) = HfArgumentParser([TransferArguments]).parse_args_into_dataclasses()
+    if args.config_file is not None:
+        # Check if the config file exists and is a yaml file
+        if not os.path.isfile(args.config_file):
+            logger.error(f"Config file {args.config_file} not found")
+            sys.exit(1)
+        # Load the config file
+        with open(args.config_file, 'r') as file:
+            config = yaml.load(file, Loader=yaml.FullLoader)
+            args = TransferArguments(**config)
+
     vocabulary_transfer(args)

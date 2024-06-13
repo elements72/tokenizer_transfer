@@ -1,0 +1,12 @@
+---
+target_model: 'xlm-roberta-base'
+output: 'xlm-roberta-base'
+tokenizer_name: 'xlm-roberta-base'
+lang_code: 'en'
+method: 'zett'
+corpus: 'buster'
+fine_tuned: false
+hypernet: 'https://huggingface.co/benjamin/zett-hypernetwork-xlm-roberta-base'
+model_class: 'AutoModelForTokenClassification'
+vocab_size: 0.75
+push_to_hub: false
