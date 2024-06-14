@@ -8,7 +8,7 @@ import yaml
 from dataclasses import dataclass
 from transformers import AutoModelForTokenClassification
 from transformers import HfArgumentParser, AutoTokenizer, AutoModel
-from transfer_utils import instantiate_model, train_tokenizer
+from tokenizer_transfer.transfer_utils import instantiate_model, train_tokenizer
 from fvt.fvt import FastVocabularyTransfer
 
 logger = getLogger(__name__)

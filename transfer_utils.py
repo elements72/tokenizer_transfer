@@ -1,5 +1,5 @@
 from transformers import (AutoModel, AutoModelForTokenClassification, AutoModelForCausalLM, AutoTokenizer)
-from corpuses import load_buster_corpus
+from tokenizer_transfer.corpuses import load_buster_corpus
 from logging import getLogger
 
 logger = getLogger(__name__)
