@@ -3,4 +3,4 @@
 	url = https://github.com/bminixhofer/zett.git
 [submodule "fvt"]
 	path = fvt
-	url = https://github.com/LeonidasY/fast-vocabulary-transfer
+	url = https://github.com/elements72/fast-vocabulary-transfer

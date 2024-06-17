@@ -42,9 +42,12 @@ class FastVocabularyTransfer(VocabularyTransfer):
                     token_partition = gen_tokenizer.tokenize(new_token.split('‗'), is_split_into_words=True)
                 else:
                     token_partition = gen_tokenizer.tokenize(new_token)
-                
-                tokens_map[new_index] = [gen_vocab[old_token] for old_token in token_partition]
-
+                try:
+                    tokens_map[new_index] = [gen_vocab[old_token] for old_token in token_partition]
+                except KeyError:
+                    # Assign the unknown token to the unknown token
+                    tokens_map[new_index] = [gen_vocab[gen_tokenizer.unk_token]]
+                    
         return tokens_map
 
     def embeddings_assignment(self, tokens_map, gen_model, **kwargs):
